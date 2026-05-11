@@ -5,8 +5,14 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 import cv2
-import face_recognition
 import numpy as np
+from face_recognition import (
+    compare_faces,
+    face_distance,
+    face_encodings,
+    face_locations,
+    load_image_file,
+)
 
 if TYPE_CHECKING:
     import numpy.typing as npt
@@ -64,8 +70,8 @@ def load_known_faces(banco_dir: Path) -> tuple[list[FaceEncoding], list[str]]:
         for img_path in sorted(person_dir.iterdir()):
             if img_path.suffix.lower() not in {".jpg", ".jpeg", ".png"}:
                 continue
-            img = face_recognition.load_image_file(str(img_path))
-            encodings: list[FaceEncoding] = face_recognition.face_encodings(img)
+            img = load_image_file(str(img_path))
+            encodings: list[FaceEncoding] = face_encodings(img)
             if encodings:
                 known_encodings.append(encodings[0])
                 known_names.append(name)
@@ -79,15 +85,11 @@ def _identify_face(
     known_encodings: list[FaceEncoding],
     known_names: list[str],
 ) -> str:
-    matches: list[bool] = face_recognition.compare_faces(
-        known_encodings, encoding, tolerance=TOLERANCE
-    )
+    matches: list[bool] = compare_faces(known_encodings, encoding, tolerance=TOLERANCE)
     if not any(matches):
         return "Desconhecido"
 
-    distances: npt.NDArray[np.float64] = face_recognition.face_distance(
-        known_encodings, encoding
-    )
+    distances: npt.NDArray[np.float64] = face_distance(known_encodings, encoding)
     best_idx = int(np.argmin(distances))
     return known_names[best_idx] if matches[best_idx] else "Desconhecido"
 
@@ -135,12 +137,10 @@ def process_video(
 
         if frame_count % FRAME_SKIP == 0:
             rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            small: npt.NDArray[np.uint8] = cv2.resize(
-                rgb, (0, 0), fx=SCALE_FACTOR, fy=SCALE_FACTOR
-            )
+            small: npt.NDArray[np.uint8] = cv2.resize(rgb, (0, 0), fx=SCALE_FACTOR, fy=SCALE_FACTOR)
 
-            locations: list[tuple[int, int, int, int]] = face_recognition.face_locations(small)
-            encodings: list[FaceEncoding] = face_recognition.face_encodings(small, locations)
+            locations: list[tuple[int, int, int, int]] = face_locations(small)
+            encodings: list[FaceEncoding] = face_encodings(small, locations)
 
             last_labels = []
             for (top, right, bottom, left), enc in zip(locations, encodings, strict=True):
