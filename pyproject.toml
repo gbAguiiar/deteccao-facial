@@ -26,3 +26,6 @@ ignore = []
 pythonVersion = "3.12"
 typeCheckingMode = "strict"
 reportMissingTypeStubs = false
+
+[tool.uv.sources]
+face-recognition-models = { git = "https://github.com/ageitgey/face_recognition_models" }
