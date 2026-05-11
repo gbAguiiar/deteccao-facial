@@ -1,0 +1,97 @@
+================================================================================
+TRABALHO EM SALA - RECONHECIMENTO FACIAL E VIES ALGORITMICO
+UNIFESO - Centro Universitario Serra dos Orgaos
+================================================================================
+
+SECAO 1 - INTEGRANTES
+--------------------------------------------------------------------------------
+Nome: Kleber Daniel Mattos Viana
+Matricula: 06007199
+
+Nome: Gabriel Maciel de Aguiar Silva
+Matricula: 06006665
+
+================================================================================
+SECAO 2 - VIDEOS E BANCO DE IMAGENS
+--------------------------------------------------------------------------------
+Videos utilizados:
+  - video1.mp4: [DESCREVA O VIDEO - ex: entrevista de pessoa X, duracao Xs, resolucao 640x360]
+  - video2.mp4: [DESCREVA O VIDEO - ex: video gravado pelo grupo, duracao Xs, resolucao 640x360]
+
+Banco de imagens:
+  - Numero de pessoas cadastradas: [PREENCHER]
+  - Total de fotos utilizadas: [PREENCHER]
+
+Como as imagens foram escolhidas:
+  [DESCREVA - ex: foram selecionadas fotos com diferentes condicoes de iluminacao,
+  expressoes faciais e angulos para testar a robustez do algoritmo]
+
+Caracteristicas das fotos:
+  - Iluminacao: [ex: fotos com boa iluminacao, fotos em ambientes escuros]
+  - Angulos: [ex: frontal, lateral, 3/4]
+  - Qualidade: [ex: alta resolucao, baixa resolucao, comprimidas]
+  - Expressoes: [ex: sorrindo, neutro, oculos]
+
+================================================================================
+SECAO 3 - AMBIENTE UTILIZADO
+--------------------------------------------------------------------------------
+Linguagem: Python 3.13
+
+Bibliotecas:
+  - face-recognition >= 1.3.0  (deteccao e codificacao de rostos via dlib)
+  - opencv-python  >= 4.10.0   (captura e escrita de video, desenho de anotacoes)
+  - numpy          >= 2.2.0    (operacoes matriciais com encodings faciais)
+  - ruff           >= 0.11.0   (linting e formatacao de codigo)
+  - basedpyright   >= 1.22.0   (verificacao de tipos em modo strict)
+
+IDE / Editor: [ex: VS Code, PyCharm, ...]
+
+Uso de IA: Claude (Anthropic) - auxiliou na estruturacao do codigo e do relatorio.
+
+================================================================================
+SECAO 4 - RESULTADOS OBTIDOS
+--------------------------------------------------------------------------------
+Video 1 - [nome do video]:
+  - Total de faces detectadas : [PREENCHER]
+  - Reconhecidas corretamente : [PREENCHER]
+  - Desconhecidas (falso neg.) : [PREENCHER]
+  - Falsos positivos          : [PREENCHER]
+
+Video 2 - [nome do video]:
+  - Total de faces detectadas : [PREENCHER]
+  - Reconhecidas corretamente : [PREENCHER]
+  - Desconhecidas (falso neg.) : [PREENCHER]
+  - Falsos positivos          : [PREENCHER]
+
+Taxa de acerto geral: [PREENCHER]%
+
+Situacoes onde o reconhecimento funcionou melhor:
+  [ex: rostos frontais, boa iluminacao, fotos de referencia similares ao video]
+
+Situacoes onde o reconhecimento falhou:
+  [ex: angulos extremos, iluminacao precaria, oclusao parcial do rosto]
+
+Observacoes gerais:
+  [DESCREVA - comportamento do algoritmo, surpresas encontradas, etc.]
+
+================================================================================
+DISCUSSAO - VIES ALGORITMICO
+--------------------------------------------------------------------------------
+O algoritmo apresentou desempenho semelhante para todas as pessoas? [SIM/NAO]
+Justificativa:
+  [DESCREVA - ex: percebi que rostos com iluminacao mais escura foram menos
+  reconhecidos, sugerindo sensibilidade do modelo a variacao de luminosidade]
+
+A iluminacao afetou os resultados? [SIM/NAO]
+Justificativa: [DESCREVA]
+
+A diversidade do banco de imagens influenciou o reconhecimento? [SIM/NAO]
+Justificativa: [DESCREVA]
+
+Reflexao critica:
+  Algoritmos de reconhecimento facial podem apresentar desempenhos diferentes
+  dependendo da qualidade dos dados de treinamento, das condicoes de captura
+  das imagens e da diversidade do conjunto utilizado. Este trabalho evidenciou
+  que [COMPLETE COM SUA EXPERIENCIA PRATICA].
+
+================================================================================
